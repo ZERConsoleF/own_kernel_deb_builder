@@ -40,5 +40,10 @@ make -j"$CPU_CORES" bindeb-pkg $EXTRA_ARGS
 
 # move deb packages to artifact dir
 cd ..
+echo "Output Builder Items"
 mkdir "artifact"
 mv ./*.deb artifact/
+echo "Packing Build Env"
+tar cvf linux-"$VERSION"-MakeEnv.tar ./linux-"$VERSION"
+mv ./linux-"$VERSION"-MakeEnv.tar artifact/
+echo "All Done."
