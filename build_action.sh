@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export VERSION=$(grep 'Kernel Configuration' < config | awk '{print $3}')
+export VERCODE=v6.x
 
 # add deb-src to sources.list
 sed -i "/deb-src/s/# //g" /etc/apt/sources.list
@@ -14,7 +15,7 @@ apt build-dep -y linux
 cd "${GITHUB_WORKSPACE}" || exit
 
 # download kernel source
-wget http://www.kernel.org/pub/linux/kernel/v$(zsh -c "echo ${VERSION[1]}").x/linux-"$VERSION".tar.xz
+wget http://www.kernel.org/pub/linux/kernel/$VERCODE/linux-"$VERSION".tar.xz
 tar -xf linux-"$VERSION".tar.xz
 cd linux-"$VERSION" || exit
 
