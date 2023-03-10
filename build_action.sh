@@ -34,7 +34,7 @@ source ../patch.d/*.sh
 
 # build deb packages
 CPU_CORES=$(($(grep -c processor < /proc/cpuinfo)*2))
-make deb-pkg -j"$CPU_CORES" $EXTRA_ARGS
+make -j"$CPU_CORES" bindeb-pkg $EXTRA_ARGS
 
 # move deb packages to artifact dir
 cd ..
