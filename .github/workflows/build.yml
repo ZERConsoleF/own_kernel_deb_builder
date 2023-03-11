@@ -10,14 +10,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
-
       - name: Build
         run: bash build_action.sh
 
-      - name: Artifact
+      - name: Artifact-deb
         uses: actions/upload-artifact@v2
         with:
-          name: artifact
-          path: ${{ github.workspace }}/artifact/
+          name: artifact-deb
+          path: ${{ github.workspace }}/artifact-deb/
+
+      - name: Artifact-env
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact-env
+          path: ${{ github.workspace }}/artifact-env/

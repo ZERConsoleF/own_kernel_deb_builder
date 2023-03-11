@@ -24,7 +24,7 @@ cd linux-"$VERSION" || exit
 cp ../config .config
 
 # disable DEBUG_INFO to speedup build
-#scripts/config --disable DEBUG_INFO
+scripts/config --disable DEBUG_INFO
 
 # extra build argument
 export EXTRA_ARGS=""
@@ -41,9 +41,12 @@ make deb-pkg -j"$CPU_CORES" $EXTRA_ARGS
 # move deb packages to artifact dir
 cd ..
 echo "Output Builder Items"
-mkdir "artifact"
-mv ./*.deb artifact/
+mkdir "artifact-deb"
+mv ./*.deb artifact-deb/
+
+# move build environment to artifact dir
 echo "Packing Build Env"
-tar -zcvf ./artifact/linux-"$VERSION"-MakeEnv.tar.gz ./linux-"$VERSION"
+mkdir "artifact-env"
+tar -zcvf ./artifact-env/linux-"$VERSION"-MakeEnv.tar.gz ./linux-"$VERSION"
 echo "All Done."
 exit 0
