@@ -9,7 +9,7 @@ sed -i "/deb-src/s/# //g" /etc/apt/sources.list
 # install dep
 apt update
 apt install -y wget xz-utils make gcc flex bison dpkg-dev bc rsync kmod cpio libssl-dev zsh
-apt install -y git dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd
+apt install -y git dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd gzip
 apt build-dep -y linux
 
 # change dir to workplace
@@ -44,6 +44,6 @@ echo "Output Builder Items"
 mkdir "artifact"
 mv ./*.deb artifact/
 echo "Packing Build Env"
-tar cvf linux-"$VERSION"-MakeEnv.tar ./linux-"$VERSION"
-mv ./linux-"$VERSION"-MakeEnv.tar artifact/
+tar -zcvf ./artifact/linux-"$VERSION"-MakeEnv.tar.gz ./linux-"$VERSION"
 echo "All Done."
+exit 0
