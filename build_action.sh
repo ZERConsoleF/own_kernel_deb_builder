@@ -20,6 +20,7 @@ cd "${GITHUB_WORKSPACE}" || exit
 
 # download kernel source
 wget http://www.kernel.org/pub/linux/kernel/$VERCODE/linux-"$VERSION".tar.xz
+mkdir -p linux-"$VERSION"
 tar -xvf linux-"$VERSION".tar.xz -C linux-"$VERSION"/ --strip-components=1
 cd linux-"$VERSION" || exit
 
