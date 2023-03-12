@@ -12,7 +12,7 @@ apt upgrade -y
 apt install -y git wget curl dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd
 #apt install -y wget xz-utils make gcc flex bison dpkg-dev bc rsync kmod cpio libssl-dev zsh
 #apt install -y git dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd gzip
-#apt build-dep -y linux
+apt build-dep -y linux
 #apt upgrade -y
 
 # change dir to workplace
