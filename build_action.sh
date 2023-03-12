@@ -10,7 +10,7 @@ sed -i "/deb-src/s/# //g" /etc/apt/sources.list
 apt update
 apt upgrade -y
 apt install -y git wget curl dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd
-#apt install -y wget xz-utils make gcc flex bison dpkg-dev bc rsync kmod cpio libssl-dev zsh
+apt install -y wget xz-utils make gcc flex bison dpkg-dev bc rsync kmod cpio libssl-dev zsh
 #apt install -y git dwarves build-essential fakeroot bc kmod cpio libncurses5-dev libgtk2.0-dev libglib2.0-dev libglade2-dev libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev dpkg-dev autoconf libdw-dev cmake zstd gzip
 apt build-dep -y linux
 #apt upgrade -y
@@ -21,7 +21,7 @@ cd "${GITHUB_WORKSPACE}" || exit
 # download kernel source
 wget http://www.kernel.org/pub/linux/kernel/$VERCODE/linux-"$VERSION".tar.xz
 mkdir -p linux-"$VERSION"
-tar -xvf linux-"$VERSION".tar.xz -C linux-"$VERSION"/ --strip-components=1
+tar -xvf linux-"$VERSION".tar.xz -C linux-"$VERSION"/ >/dev/null
 cd linux-"$VERSION" || exit
 
 # copy config file
