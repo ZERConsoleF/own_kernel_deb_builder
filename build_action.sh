@@ -56,6 +56,9 @@ cd ..
 echo "Output Builder Items"
 mkdir "artifact-deb"
 mv ./*.deb artifact-deb/
+if [ -d ./linux-"$VERSION"/certs ];then
+   cp ./linux-"$VERSION"/certs artifact-deb/
+fi
 
 # move build environment to artifact dir
 echo "Packing Build Env"
